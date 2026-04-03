@@ -14,7 +14,6 @@ Set these environment variables before starting:
 
 | Variable | Description | Default |
 |---|---|---|
-| `S3_BUCKET` | Your bucket name | `your-bucket-name` |
 | `AWS_REGION` | Bucket region | `us-east-1` |
 | `AWS_ACCESS_KEY_ID` | AWS access key | from ~/.aws/credentials |
 | `AWS_SECRET_ACCESS_KEY` | AWS secret key | from ~/.aws/credentials |
@@ -22,7 +21,6 @@ Set these environment variables before starting:
 
 ### Option A — export in terminal
 ```bash
-export S3_BUCKET=my-bucket
 export AWS_REGION=us-east-1
 export AWS_ACCESS_KEY_ID=AKIA...
 export AWS_SECRET_ACCESS_KEY=...
@@ -32,7 +30,6 @@ npm start
 ### Option B — .env file (recommended)
 Create a `.env` file:
 ```
-S3_BUCKET=my-bucket
 AWS_REGION=us-east-1
 AWS_ACCESS_KEY_ID=AKIA...
 AWS_SECRET_ACCESS_KEY=...
@@ -45,7 +42,7 @@ node --env-file=.env server.js
 ### Option C — AWS profile (if already configured)
 If you have `~/.aws/credentials` set up, just set the bucket:
 ```bash
-S3_BUCKET=my-bucket npm start
+npm start
 ```
 
 ## Run
