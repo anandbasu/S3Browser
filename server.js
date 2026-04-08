@@ -538,12 +538,12 @@ function renderTable() {
     tr.className = 'file-row';
     tr.innerHTML = \`
       <td class="icon-td"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M1 3.5A1.5 1.5 0 0 1 2.5 2h3.172a1.5 1.5 0 0 1 1.06.44l.829.828A1.5 1.5 0 0 0 8.62 3.75H13.5A1.5 1.5 0 0 1 15 5.25v7.25A1.5 1.5 0 0 1 13.5 14h-11A1.5 1.5 0 0 1 1 12.5v-9Z" fill="#FEF3C7" stroke="#D97706" stroke-width="1"/></svg></td>
-      <td class="name-td"><button class="name-link" onclick="drillInto(\${JSON.stringify(f.prefix)},\${JSON.stringify(f.name)})">\${esc(f.name)}</button></td>
+      <td class="name-td"><button class="name-link" onclick="drillInto(\${esc(JSON.stringify(f.prefix))},\${esc(JSON.stringify(f.name))})">\${esc(f.name)}</button></td>
       <td class="type-td"><span class="pill folder-pill">Folder</span></td>
       <td class="count-td">\${f.count != null ? f.count.toLocaleString() : '—'}</td>
       <td class="size-td">—</td>
       <td class="date-td">\${fmtDate(f.latestModified)}<span class="date-note">latest</span></td>
-      <td class="actions-td"><button class="btn btn-enter" onclick="drillInto(\${JSON.stringify(f.prefix)},\${JSON.stringify(f.name)})">Open →</button></td>
+      <td class="actions-td"><button class="btn btn-enter" onclick="drillInto(\${esc(JSON.stringify(f.prefix))},\${esc(JSON.stringify(f.name))})">Open →</button></td>
     \`;
     tbody.appendChild(tr);
   }
@@ -608,7 +608,7 @@ function renderBreadcrumb(prefix) {
     acc += p + '/';
     const isLast = i === parts.length - 1;
     const cap = acc;
-    html += \`<span class="sep">/</span><span class="crumb\${isLast ? ' active' : ''}" onclick="loadFolder(\${JSON.stringify(cap)})">\${esc(p)}</span>\`;
+    html += \`<span class="sep">/</span><span class="crumb\${isLast ? ' active' : ''}" onclick="loadFolder(\${esc(JSON.stringify(cap))})">\${esc(p)}</span>\`;
   });
   el.innerHTML = html;
 }
